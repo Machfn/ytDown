@@ -1,6 +1,7 @@
 const ytdl = require('ytdl-core');
 const fs = require('fs');
-let folder = process.env.userprofile + '/downloads';
+const os = require('os')
+let folder = os.homedir() + '/Downloads';
 
 
 async function downy(fileTitle, url) {
@@ -8,7 +9,7 @@ async function downy(fileTitle, url) {
     ytdl(url, {filter: 'audioonly'})
     .pipe(fs.createWriteStream(`${folder}/${fileTitle}.mp3`))
     .on('error', (err) => {
-        // console.log(err)
+        console.log(err)
     })
     .on('finish', () => {
         console.log('All Done');
