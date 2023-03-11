@@ -1,7 +1,7 @@
 const ytdl = require('ytdl-core');
 const fs = require('fs');
 const os = require('os');
-let folder = os.homeDir() + '/downloads';
+let folder = os.homedir() + '/downloads';
 
 
 async function down4(fileTitle, url) {
